@@ -1,341 +1,338 @@
 # COLOR_CONVERSIONS_OF-IMAGE
-
 ## AIM
+Write a Python program using OpenCV that performs the following tasks:
 
+i) Read and Display an Image.
 
-#### To write a python program using OpenCV to do the following image manipulations.
+ii) 	Draw Shapes and Add Text.
 
-i) Read, display, and write an image.
+iii) Image Color Conversion.
 
-ii) Access the rows and columns in an image.
+iv) Access and Manipulate Image Pixels.
 
-iii) Cut and paste a small portion of the image.
+v) Image Resizing
 
-iv) To perform the color conversion between RGB, BGR, HSV, and YCbCr color models.
+vi) Image Cropping
+
+vii) Image Flipping
+
+viii)	Write and Save the Modified Image
 
 
 ## Software Required:
-
-### Anaconda - Python 3.7
-
+Anaconda - Python 3.7
 ## Algorithm:
+### Step1:
+Load an image from your local directory and display it.
+### Step2:
+o	Draw a line from the top-left to the bottom-right of the image.
+o	Draw a circle at the center of the image.
+o	Draw a rectangle around a specific region of interest in the image.
+o	Add the text "OpenCV Drawing" at the top-left corner of the image.
+
+### Step3:
+o	Convert the image from RGB to HSV and display it.
+o	Convert the image from RGB to GRAY and display it.
+o	Convert the image from RGB to YCrCb and display it.
+o	Convert the HSV image back to RGB and display it.
+
+### Step4:
+o	Access and print the value of the pixel at coordinates (100, 100).
+o	Modify the color of the pixel at (200, 200) to white.
+
+### Step5:
+o	Resize the original image to half its size and display it.
+### Step6:
+o	Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
+### Step7:
+o	Flip the original image horizontally and display it.
+o	Flip the original image vertically and display it.
+
+### Step8:
+o	Save the final modified image to your local directory.
 
 
-### Step 1
-
-Choose an image and save it as a filename.jpg 
-
-### Step 2
-
-Use imread(filename, flags) to read the file.
+##### Program:
+### Developed By:Senthamil Selvan G
+### Register Number: 212222230139
 
 
-### Step 3
+## Output:
 
-Use imshow(window_name, image) to display the image.
-
-### Step 4
-
-Use imwrite(filename, image) to write the image.
-
-### Step 5
-
-End the program and close the output image windows.
-
-
-### Step 6
-
-Convert BGR and RGB to HSV and GRAY
-
-### Step 7
-
-Convert HSV to RGB and BGR
-
-### Step 8
-
-Convert RGB and BGR to YCrCb
-
-### Step 9
-
-Split and Merge RGB Image
-
-
-### Step 10
-
-Split and merge HSV Image
-
-Developed By: PRAVEEN S
-
-Register Number: 212222240078
-
-
-#### IMAGE 
-
-![ex1](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/f32ed665-7965-4326-90c6-6c76594a7e41)
-
-
-## Program:
-
-
-### (i) Read and display the image
-```py
-#Read and display the image
+### i)Read and Display an Image
+```
 import cv2
-image=cv2.imread('ex1.jpg',1)
-image=cv2.resize(image,(200,325))
-cv2.imshow('Psv',image)
+image=cv2.imread('b.jpg',1)
+cv2.imshow('Image Window', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/d5aed9b0-7c19-4ef1-84a8-6ee19c031df5)
+
+<br>
+<br>
+
+### ii)Draw Shapes and Add Text
+i)Draw a line from the top-left to the bottom-right of the image.
+```
+import cv2
+img = cv2.imread("b.jpg")
+res = cv2.line(img, (0, 0), (1099, 799), (200, 100, 205), 10)
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+```
+![image](https://github.com/user-attachments/assets/32667b3d-d6f8-4f64-91d4-f1edc24b6064)
+
+ii)Draw a circle at the center of the image.
+```
+
+
+import cv2
+
+img = cv2.imread("b.png")
+
+res=cv2.circle(img,(100,100),100,(200,0,0),10)
+
+# Display the HSV image
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/4fa7cabe-c7ba-4d6b-b1fe-327e2708ade6)
+
+iii)Draw a rectangle around a specific region of interest in the image.
+```
+import cv2
+
+img = cv2.imread("panda.jpg")
+start=(0,0)
+stop=(318,200)
+color=(100,255,100)
+thickness=10
+res_img=cv2.rectangle(img,start,stop,color,thickness)
+# Display the HSV image
+cv2.imshow('Image Window', res_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/e33ec6d8-29fb-4713-a567-3fc60f2e9431)
+
+
+iv)Add the text "PANDA" at the top-left corner of the image.
+```
+import cv2
+
+# Load the image
+img = cv2.imread("panda.JPG")
+
+# Define the text to be added and its position
+text = "OPENCV DRAWING"
+position = (50, 50)  # Positioning the text at the top-left corner
+
+# Set the font, scale, color, and thickness of the text
+font = cv2.FONT_HERSHEY_SIMPLEX
+font_scale = 1
+color = (255, 255, 255)  # White color
+thickness = 2
+
+# Add the text to the image
+res = cv2.putText(img, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
+
+# Display the image with the text
+cv2.imshow('Image Window', res)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
+![image](https://github.com/user-attachments/assets/7bfdcd9e-a9ea-41bf-bc30-bf7d77d132a0)
 
-### Output:
+<br>
+<br>
 
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/a4c33ef9-beeb-46cf-aa3c-09d5a6d35fe9)
-
-
-## Program:
-
-### (ii) Write the image
-
-```py
-#Write the image
-import cv2
-image=cv2.imread('ex1.jpg',0)
-cv2.imwrite('demos.jpg',image)
+### iii)Image Color Conversion
+i)Convert the image from RGB to HSV and display it.
 ```
-
-### Output
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/3ada3b26-8930-43cc-80e9-1f9c81ce7dcc)
-
-
-## Program:
-
-### (iii) Shape of the Image
-
-```py
-#Shape of the Image
 import cv2
-image=cv2.imread('ex1.jpg',1)
-print(image.shape)
-```
-
-
-### Output 
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/fe1aeed9-6e4b-4590-8060-876c41a4553f)
-
-
-## Program:
-
-### (iv) Access rows and columns
-```py
-#Access rows and columns
-import random
-import cv2
-image=cv2.imread('ex1.jpg',1)
-image=cv2.resize(image,(400,400))
-for i in range (150,200):
-    for j in range(image.shape[1]):
-        image[i][j]=[random.randint(0,255),
-                    random.randint(0,255),
-                    random.randint(0,255)] 
-cv2.imshow('part image',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-
-
-### Output
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/ef0fca26-5867-4791-b975-f26aa7b41670)
-
-
-
-## Program:
-
-### (v) Cut and paste portion of image
-```py
-#Cut and paste portion of image
-import cv2
-image=cv2.imread('ex1.jpg',1)
-image=cv2.resize(image,(400,400))
-tag =image[150:200,110:160]
-image[110:160,150:200] = tag
-cv2.imshow('partimage1',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-
-### Output
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/b53fecbd-b3ba-456a-8375-f1d44b869ca8)
-
-
-## Program:
-
-### (vi) BGR and RGB to HSV and GRAY
-```py
-#BGR and RGB to HSV and GRAY
-import cv2
-img = cv2.imread('ex1.jpg',1)
+img = cv2.imread('panda.jpg',1)
 img = cv2.resize(img,(300,200))
 cv2.imshow('Original Image',img)
-
-hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
-cv2.imshow('BGR2HSV',hsv1)
-
 hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
 cv2.imshow('RGB2HSV',hsv2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/ebe21ed0-727e-431e-a614-caa4dcd32246)
 
-gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-cv2.imshow('BGR2GRAY',gray1)
-
+ii.)Convert the image from RGB to GRAY and display it.
+```
+import cv2
+img = cv2.imread('panda.jpg',1)
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original Image',img)
 gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
 cv2.imshow('RGB2GRAY',gray2)
-
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-### Original Image
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/92303789-e323-4eb9-ba0e-0fdce69427cd)
-
-
-### Output
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/01ea9fcd-66c7-44fb-ab2f-5c4eada4afa0)
-
-
-## Program:
-
-### (vii) HSV to RGB and BGR
-
-```py
-#HSV to RGB and BGR
-import cv2
-img = cv2.imread('ex1.jpg')
-img = cv2.resize(img,(300,200))
-
-img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
-cv2.imshow('Original HSV Image',img)
-
-RGB = cv2.cvtColor(img,cv2.COLOR_HSV2RGB)
-cv2.imshow('2HSV2BGR',RGB)
-
-BGR = cv2.cvtColor(img,cv2.COLOR_HSV2BGR)
-cv2.imshow('HSV2RGB',BGR)
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+![image](https://github.com/user-attachments/assets/84199410-5b2e-44e8-8099-62ba4d279a14)
+iii.)Convert the image from RGB to YCrCb and display it.
 ```
-
-### Original HSV
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/5692de82-493b-400c-b4b1-e5b9c9f47909)
-
-
-### Output
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/6b48c6b2-6ecf-4e5a-9b07-257e165e9fe0)
-
-
-
-## Program:
-
-### (viii) RGB and BGR to YCrCb
-```py
-
-#RGB and BGR to YCrCb
 import cv2
-img = cv2.imread('ex1.jpg')
+img = cv2.imread('panda.jpg',1)
 img = cv2.resize(img,(300,200))
-cv2.imshow('Original RGB Image',img)
-
+cv2.imshow('Original Image',img)
 YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
 cv2.imshow('RGB-2-YCrCb',YCrCb1)
-
-YCrCb2 = cv2.cvtColor(img, cv2.COLOR_RGB2YCrCb)
-cv2.imshow('BGR-2-YCrCb',YCrCb2)
-
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-
-### Output
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/311b94e8-aa32-4c80-95ee-52a177832a0d)
-
-## Program:
-
-### (ix) Split and merge RGB Image
-```py
-#Split and merge RGB Image
+![image](https://github.com/user-attachments/assets/15046968-99eb-4028-a524-5c2d01042766)
+iv.)Convert the HSV image back to RGB and display it.
+```
 import cv2
-img = cv2.imread('ex1.jpg',1)
+img = cv2.imread('panda.jpg',1)
 img = cv2.resize(img,(300,200))
-
-R = img[:,:,2]
-G = img[:,:,1]
-B = img[:,:,0]
-
-cv2.imshow('R-Channel',R)
-cv2.imshow('G-Channel',G)
-cv2.imshow('B-Channel',B)
-
-merged = cv2.merge((B,G,R))
-cv2.imshow('Merged RGB image',merged)
-
+cv2.imshow('Original Image',img)
+BGR = cv2.cvtColor(img,cv2.COLOR_HSV2BGR)
+cv2.imshow('HSV2RGB',BGR)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-### Output
 
-#### Channels
+![image](https://github.com/user-attachments/assets/1f50d6d5-f749-40ab-a7da-685e0ab655bb)
 
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/1b50bf45-b1c0-4fdc-89ca-ceb06d664775)
+<br>
+<br>
 
-
-#### Merged RGB
-
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/cdfa696d-7ceb-48ed-a61b-100f4f3a1740)
-
-## Program:
-
-### (x) Split and merge HSV Image
-```py
-#Split and merge HSV Image
+### iv)Access and Manipulate Image Pixels
+```
 import cv2
-img = cv2.imread("ex1.jpg",1)
-img = cv2.resize(img,(300,200))
-img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
 
-H,S,V=cv2.split(img)
+# Load and resize the image
+img = cv2.imread('panda.jpg', 1)
+img = cv2.resize(img, (300, 200))
 
-cv2.imshow('Hue',H)
-cv2.imshow('Saturation',S)
-cv2.imshow('Value',V)
+# Show the original image
+cv2.imshow('Original Image', img)
 
-merged = cv2.merge((H,S,V))
-cv2.imshow('Merged',merged)
+# 1. Access and print the value of the pixel at coordinates (100, 100)
+pixel_value = img[100, 100]
+print(f"Pixel value at (100, 100): {pixel_value}")
 
+# 2. Modify the color of the pixel at (199, 199) to white
+img[199, 199] = [255, 255, 255]  # Setting the pixel value to white (BGR)
+
+# Display the modified image
+cv2.imshow('Modified Image', img)
+
+# Wait for a key press and close the windows
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+![image](https://github.com/user-attachments/assets/5e2f0fe3-ecfa-4d45-8f93-7da690b373df)
+
+
+<br>
+<br>
+
+### v)Image Resizing
+```
+width=600
+height=800
+half_width=300
+half_height=400
+resized_img = cv2.resize(image, (300, 400))
+cv2.imshow('Original',image)
+cv2.imshow('resized',resized_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-### Output
+![image](https://github.com/user-attachments/assets/68aa3cda-136c-4cce-a2cd-a8313c71a963)
+![image](https://github.com/user-attachments/assets/588aa82f-4371-43cd-9e90-2b821cd1f4fc)
 
-### Merged HSV
+<br>
+<br>
+
+### vi)Image Cropping
+```
+import cv2
+
+# Load the image
+image1=cv2.imread('panda.jpg',1)
+
+# Define the starting point and size of the ROI
+x, y = 50, 50
+width, height = 100, 100
+
+# Crop the ROI
+roi = image1[y:y + height, x:x + width]
+
+# Display the cropped ROI
+cv2.imshow('Cropped Image', roi)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+<br>
+<br>
+
+### vii)Image Flipping
+i.)Flip the original image horizontally and display it.
+```
+import cv2
+img = cv2.imread("panda.jpg")
+img = cv2.resize(img,(300,200))
+res=cv2.rotate(img,cv2.ROTATE_180)
+cv2.imshow('Original',img)
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/6d75f529-ddad-4827-8c2e-c2de775079d2)
+ii.)Flip the original image vertically and display it.
+```
+import cv2
+
+img = cv2.imread("panda.JPG")
+img = cv2.resize(img,(300,200))
+res=cv2.rotate(img,cv2.ROTATE_90_CLOCKWISE)
+# Display the HSV image
+cv2.imshow('Original',img)
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/a73e4e00-3ea0-47fb-9cf3-90af75caab05)
 
 
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/a7399fa6-f2ed-44d6-83c2-fbe0392e915d)
+<br>
+<br>
+
+### viii)Write and Save the Modified Image
+```
+ cv2.imwrite('panda.jpg',image)
+```
+![image](https://github.com/user-attachments/assets/a2ab057a-430d-492a-be5b-988cc0ccde5d)
+
+<br>
+<br>
 
 
-### Splitted
 
 
-![image](https://github.com/Praveen0500/COLOR_CONVERSIONS_OF-IMAGE/assets/120218611/aad81f9b-8954-41fd-95f9-2a8caa479eb5)
 
 
 ## Result:
-Thus the images are read, displayed, and written ,and color conversion was performed between RGB, HSV and YCbCr color models successfully using the python program.
+Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
+
+
+
+
+
+
+
